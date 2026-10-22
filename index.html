@@ -111,6 +111,20 @@
     font-size: 24px;
     background: var(--accent-soft);
   }
+  .emoji-icon.bmac {
+    background: #fff6cc;
+  }
+  .emoji-icon.ofuse {
+    background: #ffeef2;
+  }
+  @media (prefers-color-scheme: dark) {
+    .emoji-icon.bmac {
+      background: #3a3210;
+    }
+    .emoji-icon.ofuse {
+      background: #3a1c24;
+    }
+  }
   .link-content {
     flex: 1;
     min-width: 0;
@@ -177,10 +191,43 @@
     <h3>ツール</h3>
     <ul class="links">
       <li>
+        <a href="https://github.com/riryo3/DialMatrix/releases" target="_blank" rel="noopener">
+          <img class="link-icon" src="dialmatrix.png" alt="DialMatrix">
+          <div class="link-content">
+            <span class="link-title">DialMatrix</span>
+            <small>Rev-O-mate用アプリ ダウンロード（GitHub Releases）</small>
+          </div>
+        </a>
+      </li>
+      <li>
         <a href="https://sewing-cost.ryota-softwares.workers.dev/" target="_blank" rel="noopener">
           <img class="link-icon invert-dark" src="sewing.png" alt="">
           <div class="link-content">
             <span class="link-title">ハンドメイド出品価格計算ツール</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="group">
+    <h3>応援・サポート</h3>
+    <ul class="links">
+      <li>
+        <a href="https://ofuse.me/c04bc5b2" target="_blank" rel="noopener">
+          <span class="link-icon emoji-icon ofuse">💌</span>
+          <div class="link-content">
+            <span class="link-title">OFUSE</span>
+            <small>ファンレター・応援メッセージを送る</small>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://buymeacoffee.com/ryota3" target="_blank" rel="noopener">
+          <span class="link-icon emoji-icon bmac">☕️</span>
+          <div class="link-content">
+            <span class="link-title">Buy Me a Coffee</span>
+            <small>コーヒー1杯分のサポートを送る</small>
           </div>
         </a>
       </li>
@@ -218,15 +265,6 @@
           <img class="link-icon invert-dark" src="github.png" alt="">
           <div class="link-content">
             <span class="link-title">GitHub</span>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/riryo3/DialMatrix/releases" target="_blank" rel="noopener">
-          <img class="link-icon" src="dialmatrix.png" alt="DialMatrix">
-          <div class="link-content">
-            <span class="link-title">DialMatrix</span>
-            <small>ダウンロード（GitHub Releases）</small>
           </div>
         </a>
       </li>
