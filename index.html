@@ -28,6 +28,9 @@
       --accent: #7ea2ff;
       --accent-soft: #232c45;
     }
+    .invert-dark {
+      filter: invert(1);
+    }
   }
   * { box-sizing: border-box; }
   body {
@@ -63,19 +66,45 @@
   }
   .links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
   .links a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 14px;
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 14px;
-    padding: 14px 16px;
+    padding: 12px 16px;
     color: var(--text);
     text-decoration: none;
     font-weight: 600;
+    transition: all .2s ease;
   }
   .links a:hover, .links a:focus-visible {
     border-color: var(--accent);
     background: var(--accent-soft);
     outline: none;
+  }
+  .link-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .emoji-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: var(--accent-soft);
+  }
+  .link-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .link-title {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
   .links small {
     display: block;
@@ -108,30 +137,75 @@
   <section class="group">
     <h3>ゲーム</h3>
     <ul class="links">
-      <li><a href="https://shiritori-chain-resonance.web.app/" target="_blank" rel="noopener">シリトリ・チェイン・レゾナンス<small>日本語版</small></a></li>
-      <li><a href="https://ultimate-word-chain.web.app/" target="_blank" rel="noopener">Ultimate Word Chain<small>英語版</small></a></li>
+      <li>
+        <a href="https://shiritori-chain-resonance.web.app/" target="_blank" rel="noopener">
+          <img class="link-icon" src="shiritori.jpg" alt="">
+          <div class="link-content">
+            <span class="link-title">シリトリ・チェイン・レゾナンス</span>
+            <small>日本語版</small>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://ultimate-word-chain.web.app/" target="_blank" rel="noopener">
+          <img class="link-icon" src="uwc.png" alt="">
+          <div class="link-content">
+            <span class="link-title">Ultimate Word Chain</span>
+            <small>英語版</small>
+          </div>
+        </a>
+      </li>
     </ul>
   </section>
 
   <section class="group">
     <h3>ツール</h3>
     <ul class="links">
-      <li><a href="https://sewing-cost.ryota-softwares.workers.dev/" target="_blank" rel="noopener">ハンドメイド出品価格計算ツール</a></li>
+      <li>
+        <a href="https://sewing-cost.ryota-softwares.workers.dev/" target="_blank" rel="noopener">
+          <img class="link-icon" src="sewing.png" alt="">
+          <div class="link-content">
+            <span class="link-title">ハンドメイド出品価格計算ツール</span>
+          </div>
+        </a>
+      </li>
     </ul>
   </section>
 
   <section class="group">
     <h3>おすすめ・紹介</h3>
     <ul class="links">
-      <li><a href="https://potalk.app/" target="_blank" rel="noopener">🫖 ぽっと通話〈実験版〉<small>くらもさん作 Webアプリ</small></a></li>
+      <li>
+        <a href="https://potalk.app/" target="_blank" rel="noopener">
+          <span class="link-icon emoji-icon">🫖</span>
+          <div class="link-content">
+            <span class="link-title">ぽっと通話〈実験版〉</span>
+            <small>くらもさん作 Webアプリ</small>
+          </div>
+        </a>
+      </li>
     </ul>
   </section>
 
   <section class="group">
     <h3>リンク</h3>
     <ul class="links">
-      <li><a href="https://x.com/ryota_softwares" target="_blank" rel="noopener">X（旧Twitter）</a></li>
-      <li><a href="https://github.com/riryo3" target="_blank" rel="noopener">GitHub</a></li>
+      <li>
+        <a href="https://x.com/ryota_softwares" target="_blank" rel="noopener">
+          <img class="link-icon invert-dark" src="x.png" alt="">
+          <div class="link-content">
+            <span class="link-title">X（旧Twitter）</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/riryo3" target="_blank" rel="noopener">
+          <img class="link-icon" src="github.png" alt="">
+          <div class="link-content">
+            <span class="link-title">GitHub</span>
+          </div>
+        </a>
+      </li>
     </ul>
   </section>
 
