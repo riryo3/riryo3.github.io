@@ -28,6 +28,7 @@
       --accent: #7ea2ff;
       --accent-soft: #232c45;
     }
+    /* ダークモード時に指定アイコンを白反転 */
     .invert-dark {
       filter: invert(1);
     }
@@ -101,6 +102,7 @@
     border-radius: 10px;
     object-fit: cover;
     flex-shrink: 0;
+    transition: filter .2s ease;
   }
   .emoji-icon {
     display: flex;
@@ -176,7 +178,7 @@
     <ul class="links">
       <li>
         <a href="https://sewing-cost.ryota-softwares.workers.dev/" target="_blank" rel="noopener">
-          <img class="link-icon" src="sewing.png" alt="">
+          <img class="link-icon invert-dark" src="sewing.png" alt="">
           <div class="link-content">
             <span class="link-title">ハンドメイド出品価格計算ツール</span>
           </div>
@@ -213,7 +215,7 @@
       </li>
       <li>
         <a href="https://github.com/riryo3" target="_blank" rel="noopener">
-          <img class="link-icon" src="github.png" alt="">
+          <img class="link-icon invert-dark" src="github.png" alt="">
           <div class="link-content">
             <span class="link-title">GitHub</span>
           </div>
