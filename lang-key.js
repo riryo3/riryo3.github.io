@@ -57,6 +57,13 @@
   knob.addEventListener('pointerup', release);
   knob.addEventListener('pointercancel', release);
 
+  window.addEventListener('pageshow', () => {
+    dragging = false;
+    moved = false;
+    link.classList.remove('is-sliding');
+    setOffset(0);
+  });
+
   link.addEventListener('click', (event) => {
     if (moved) event.preventDefault();
     moved = false;
