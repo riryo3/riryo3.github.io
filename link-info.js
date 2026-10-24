@@ -29,6 +29,7 @@
   document.body.append(dialog);
 
   let activeInfoButton = null;
+  let usedKeyboard = false;
 
   infoTargets.forEach((target) => {
     const isProfile = target.matches('.about');
@@ -51,8 +52,10 @@
       description.textContent = target.getAttribute('title').trim();
       activeInfoButton = button;
       button.setAttribute('aria-expanded', 'true');
+      usedKeyboard = event.detail === 0;
       dialog.showModal();
-      closeButton.focus();
+      if (usedKeyboard) closeButton.focus();
+      else closeButton.blur();
     });
 
     (isProfile ? target : target.parentElement).append(button);
@@ -67,7 +70,7 @@
   dialog.addEventListener('close', () => {
     if (!activeInfoButton) return;
     activeInfoButton.setAttribute('aria-expanded', 'false');
-    activeInfoButton.focus();
+    if (usedKeyboard) activeInfoButton.focus();
     activeInfoButton = null;
   });
 })();
