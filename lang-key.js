@@ -49,10 +49,11 @@
     link.classList.remove('is-sliding');
     if (moved && dx >= max * 0.85) {
       setOffset(max);
+      link.classList.add('is-leaving');
       setTimeout(() => {
         resetInstantly();
         location.href = target;
-      }, 120);
+      }, 180);
     } else {
       setOffset(0);
     }
@@ -69,7 +70,10 @@
     link.classList.remove('is-sliding');
   };
   window.addEventListener('pagehide', resetInstantly);
-  window.addEventListener('pageshow', resetInstantly);
+  window.addEventListener('pageshow', () => {
+    resetInstantly();
+    link.classList.remove('is-leaving');
+  });
 
   link.addEventListener('click', (event) => {
     if (moved) event.preventDefault();
