@@ -218,6 +218,12 @@ h1 {
   margin: 0;
 }
 
+.support-note {
+  color: var(--sub);
+  font-size: .85rem;
+  margin: 6px 0 0;
+}
+
 .about {
   position: relative;
   background: var(--card);
