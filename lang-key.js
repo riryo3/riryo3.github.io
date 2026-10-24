@@ -49,11 +49,7 @@
     link.classList.remove('is-sliding');
     if (moved && dx >= max * 0.85) {
       setOffset(max);
-      link.classList.add('is-leaving');
-      setTimeout(() => {
-        resetInstantly();
-        location.href = target;
-      }, 180);
+      location.replace(target);
     } else {
       setOffset(0);
     }
@@ -69,11 +65,7 @@
     link.offsetWidth;
     link.classList.remove('is-sliding');
   };
-  window.addEventListener('pagehide', resetInstantly);
-  window.addEventListener('pageshow', () => {
-    resetInstantly();
-    link.classList.remove('is-leaving');
-  });
+  window.addEventListener('pageshow', resetInstantly);
 
   link.addEventListener('click', (event) => {
     if (moved) event.preventDefault();

@@ -549,12 +549,6 @@ footer {
   font-size: .85rem;
   font-weight: 600;
   text-decoration: none;
-  transition: opacity .35s ease;
-}
-
-.lang-key.is-leaving {
-  opacity: 0;
-  transition-duration: .15s;
 }
 
 .lang-key > span:last-child {
