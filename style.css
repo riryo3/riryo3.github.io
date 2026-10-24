@@ -219,9 +219,11 @@ h1 {
 }
 
 .support-note {
-  color: var(--sub);
-  font-size: .85rem;
-  margin: 6px 0 0;
+  color: var(--text);
+  font-size: .9rem;
+  font-weight: 600;
+  margin: 8px 0 0;
+  text-shadow: 0 0 6px var(--card), 0 0 2px var(--card);
 }
 
 .about {
