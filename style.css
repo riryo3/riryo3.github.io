@@ -245,6 +245,12 @@ h1 {
   transition: filter .2s ease;
 }
 
+.home-page .discord-icon {
+  padding: 6px;
+  object-fit: contain;
+  background: var(--accent-soft);
+}
+
 .subpage .link-icon {
   width: 48px;
   height: 48px;
