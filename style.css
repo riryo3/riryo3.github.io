@@ -153,10 +153,11 @@ h1 {
 }
 
 .about {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 20px;
+  padding: 20px 40px 20px 20px;
   margin-bottom: 28px;
 }
 
@@ -438,9 +439,9 @@ footer {
   width: 36px;
   height: 36px;
   padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--card);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--text);
   font: inherit;
   font-size: 1.4rem;
@@ -449,6 +450,5 @@ footer {
 }
 
 .link-info-dialog__close:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent);
+  color: var(--accent);
 }

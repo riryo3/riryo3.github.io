@@ -1,6 +1,6 @@
 (() => {
-  const cardLinks = document.querySelectorAll('.links a[title]');
-  if (!cardLinks.length || typeof HTMLDialogElement === 'undefined') return;
+  const infoTargets = document.querySelectorAll('.links a[title], .about[title]');
+  if (!infoTargets.length || typeof HTMLDialogElement === 'undefined') return;
 
   const dialog = document.createElement('dialog');
   dialog.className = 'link-info-dialog';
@@ -13,7 +13,7 @@
 
   const heading = document.createElement('h2');
   heading.id = 'link-info-heading';
-  heading.textContent = 'リンクの説明';
+  heading.textContent = 'ボタンのタイトル';
 
   const closeButton = document.createElement('button');
   closeButton.className = 'link-info-dialog__close';
@@ -30,9 +30,11 @@
 
   let activeInfoButton = null;
 
-  cardLinks.forEach((link) => {
-    const text = link.querySelector('.link-title')?.textContent.trim()
-      || link.textContent.trim();
+  infoTargets.forEach((target) => {
+    const isProfile = target.matches('.about');
+    const text = isProfile
+      ? 'プロフィールの英語訳'
+      : target.querySelector('.link-title')?.textContent.trim() || target.textContent.trim();
     const button = document.createElement('button');
     button.className = 'link-info-button';
     button.type = 'button';
@@ -45,14 +47,15 @@
     button.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
-      description.textContent = link.getAttribute('title').trim();
+      heading.textContent = isProfile ? 'プロフィールの英語訳' : 'ボタンのタイトル';
+      description.textContent = target.getAttribute('title').trim();
       activeInfoButton = button;
       button.setAttribute('aria-expanded', 'true');
       dialog.showModal();
       closeButton.focus();
     });
 
-    link.parentElement.append(button);
+    (isProfile ? target : target.parentElement).append(button);
   });
 
   closeButton.addEventListener('click', () => dialog.close());
