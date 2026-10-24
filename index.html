@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://riryo3.github.io/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f6f7fb">
-	<link rel="icon" type="image/png" href="favicon-final.png">
+	<link rel="icon" type="image/png" href="favicon-round.png">
 	<link rel="apple-touch-icon" href="favicon-final.png">
 		<link rel="stylesheet" href="style.css">
 		<script src="link-info.js" defer></script>
@@ -114,7 +114,7 @@
   </section>
 
 	  <section class="group">
-	    <h3>つながる</h3>
+	    <h3>リョータとつながる</h3>
 	    <ul class="links">
 	      <li>
 	        <a href="https://x.com/ryota_softwares" title="リョータのXプロフィールと投稿を見られます。" target="_blank" rel="noopener">
@@ -140,7 +140,16 @@
           </div>
         </a>
       </li>
-    </ul>
+	      <li>
+	        <a href="#" role="button" data-qr-open aria-haspopup="dialog" aria-controls="qr-dialog" title="このページのQRコードを表示します。名刺がわりに見せられます。">
+	          <img class="link-icon invert-dark" src="qr-icon.svg" alt="">
+	          <div class="link-content">
+	            <span class="link-title">QRコード</span>
+	            <small>名刺がわりに見せられます</small>
+	          </div>
+	        </a>
+	      </li>
+	    </ul>
   </section>
 
   <section class="group">
@@ -236,6 +245,11 @@
   </section>
 
   <footer>© 2026 リョータ</footer>
+
+	<dialog class="profile-image-dialog qr-dialog" id="qr-dialog" aria-label="リョータのページのQRコード">
+	  <button class="profile-image-dialog__close" type="button" aria-label="閉じる">×</button>
+	  <img class="profile-image-dialog__image" src="qr.png" alt="このページ(https://riryo3.github.io/)のQRコード">
+	</dialog>
 </main>
 </body>
 </html>

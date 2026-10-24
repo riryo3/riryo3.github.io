@@ -526,3 +526,9 @@ footer {
 .link-info-dialog__close:hover {
   color: var(--accent);
 }
+
+.qr-dialog .profile-image-dialog__image {
+  border-radius: 24px;
+  object-fit: contain;
+  background: #fff;
+}
