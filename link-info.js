@@ -1,4 +1,5 @@
 (() => {
+  const en = document.documentElement.lang === 'en';
   const infoTargets = document.querySelectorAll('.links a[title], .about[title]');
   if (!infoTargets.length || typeof HTMLDialogElement === 'undefined') return;
 
@@ -13,12 +14,12 @@
 
   const heading = document.createElement('h2');
   heading.id = 'link-info-heading';
-  heading.textContent = 'ボタンのタイトル';
+  heading.textContent = en ? 'Button title' : 'ボタンのタイトル';
 
   const closeButton = document.createElement('button');
   closeButton.className = 'link-info-dialog__close';
   closeButton.type = 'button';
-  closeButton.setAttribute('aria-label', '閉じる');
+  closeButton.setAttribute('aria-label', en ? 'Close' : '閉じる');
   closeButton.textContent = '×';
 
   const description = document.createElement('p');
@@ -40,7 +41,7 @@
     button.className = 'link-info-button';
     button.type = 'button';
     button.textContent = 'i';
-    button.setAttribute('aria-label', `${text}の説明を表示`);
+    button.setAttribute('aria-label', en ? `Show description of ${text}` : `${text}の説明を表示`);
     button.setAttribute('aria-haspopup', 'dialog');
     button.setAttribute('aria-controls', dialog.id);
     button.setAttribute('aria-expanded', 'false');

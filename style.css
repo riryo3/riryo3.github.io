@@ -532,3 +532,48 @@ footer {
   object-fit: contain;
   background: #fff;
 }
+
+.lang-switch {
+  margin: 10px 0 0;
+}
+
+.lang-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 16px 4px 4px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: .85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lang-key > span:last-child {
+  opacity: calc(1 - var(--progress, 0));
+}
+
+.lang-key__num {
+  transform: translateX(var(--slide, 0));
+  transition: transform .25s ease;
+  touch-action: none;
+  -webkit-user-drag: none;
+  cursor: grab;
+  user-select: none;
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--card);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.lang-key.is-sliding .lang-key__num {
+  transition: none;
+  cursor: grabbing;
+}
