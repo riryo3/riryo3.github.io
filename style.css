@@ -553,6 +553,29 @@ footer {
 
 .lang-key > span:last-child {
   opacity: calc(1 - var(--progress, 0));
+  background: linear-gradient(90deg, color-mix(in srgb, var(--text) 60%, transparent) 35%, var(--text) 50%, color-mix(in srgb, var(--text) 60%, transparent) 65%) 100% 0 / 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2.6s linear infinite;
+}
+
+.lang-key.is-sliding > span:last-child {
+  animation-play-state: paused;
+}
+
+@keyframes shine {
+  to {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-key > span:last-child {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
 }
 
 .lang-key__num {
