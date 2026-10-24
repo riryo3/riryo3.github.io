@@ -57,12 +57,16 @@
   knob.addEventListener('pointerup', release);
   knob.addEventListener('pointercancel', release);
 
-  window.addEventListener('pageshow', () => {
+  const resetInstantly = () => {
     dragging = false;
     moved = false;
-    link.classList.remove('is-sliding');
+    link.classList.add('is-sliding');
     setOffset(0);
-  });
+    link.offsetWidth;
+    link.classList.remove('is-sliding');
+  };
+  window.addEventListener('pagehide', resetInstantly);
+  window.addEventListener('pageshow', resetInstantly);
 
   link.addEventListener('click', (event) => {
     if (moved) event.preventDefault();
