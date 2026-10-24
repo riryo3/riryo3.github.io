@@ -47,7 +47,7 @@
     button.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
-      heading.textContent = isProfile ? 'プロフィールの英語訳' : 'ボタンのタイトル';
+      heading.textContent = isProfile ? 'About Ryota...' : 'ボタンのタイトル';
       description.textContent = target.getAttribute('title').trim();
       activeInfoButton = button;
       button.setAttribute('aria-expanded', 'true');
