@@ -10,15 +10,22 @@
 <meta name="theme-color" content="#f6f7fb">
 	<link rel="icon" type="image/png" href="favicon-final.png">
 	<link rel="apple-touch-icon" href="favicon-final.png">
-	<link rel="stylesheet" href="style.css">
-	<script src="link-info.js" defer></script>
-	</head>
-	<body class="home-page">
-	<main>
-  <header>
-    <img class="avatar" src="x_grok.png" alt="リョータ">
-    <h1>リョータ / Ryota</h1>
-    <p class="handle">@ryota_softwares</p>
+		<link rel="stylesheet" href="style.css">
+		<script src="link-info.js" defer></script>
+		<script src="avatar-modal.js" defer></script>
+		</head>
+		<body class="home-page">
+		<main>
+	  <header>
+	    <button class="avatar-button" type="button" aria-label="プロフィール画像を拡大表示" aria-haspopup="dialog" aria-controls="profile-image-dialog">
+	      <img class="avatar" src="x_grok.png" alt="リョータ">
+	    </button>
+	    <dialog class="profile-image-dialog" id="profile-image-dialog" aria-label="リョータのプロフィール画像">
+	      <button class="profile-image-dialog__close" type="button" aria-label="閉じる">×</button>
+	      <img class="profile-image-dialog__image" src="x_grok.png" alt="リョータのプロフィール画像">
+	    </dialog>
+	    <h1>リョータ / Ryota</h1>
+	    <p class="handle">@ryota_softwares</p>
   </header>
 
   <section class="about" title="I make games and software with AI. I'm currently focused on DialMatrix, a settings app for the Rev-O-mate left-hand device. I also made Shiritori Chain Resonance (English title: Ultimate Word Chain). It's on hiatus, but you can still play it. I often don't understand what the computer tells me. I'm usually a lazy, scruffy, bearded guy. I love US-layout keyboards!">
