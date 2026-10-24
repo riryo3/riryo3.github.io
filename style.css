@@ -577,3 +577,21 @@ footer {
   transition: none;
   cursor: grabbing;
 }
+
+.is-arriving {
+  animation: arrive .6s cubic-bezier(.2, .7, .2, 1);
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: scale(.94);
+    filter: blur(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-arriving {
+    animation: none;
+  }
+}

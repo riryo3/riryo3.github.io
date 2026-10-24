@@ -10,6 +10,13 @@
     location.href = target;
   });
 
+  try {
+    if (sessionStorage.getItem('lang-slide')) {
+      sessionStorage.removeItem('lang-slide');
+      document.querySelector('main').classList.add('is-arriving');
+    }
+  } catch (e) {}
+
   const link = document.querySelector('.lang-key');
   const knob = link && link.querySelector('.lang-key__num');
   if (!knob) return;
@@ -49,6 +56,7 @@
     link.classList.remove('is-sliding');
     if (moved && dx >= max * 0.85) {
       setOffset(max);
+      try { sessionStorage.setItem('lang-slide', '1'); } catch (e) {}
       location.replace(target);
     } else {
       setOffset(0);
