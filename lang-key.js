@@ -49,7 +49,10 @@
     link.classList.remove('is-sliding');
     if (moved && dx >= max * 0.85) {
       setOffset(max);
-      location.href = target;
+      setTimeout(() => {
+        resetInstantly();
+        location.href = target;
+      }, 120);
     } else {
       setOffset(0);
     }
