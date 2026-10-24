@@ -24,7 +24,7 @@
   body::before {
     background-image:
       linear-gradient(var(--background-wash), var(--background-wash)),
-      url("portfolio-profile-background-dark.png");
+      url("portfolio-profile-background-dark.jpg");
   }
 
   .invert-dark {
@@ -62,7 +62,7 @@ body::before {
   pointer-events: none;
   background-image:
     linear-gradient(var(--background-wash), var(--background-wash)),
-    url("portfolio-profile-background-light.png");
+    url("portfolio-profile-background-light.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,7 +72,7 @@ body::before {
   body::before {
     background-image:
       linear-gradient(var(--background-wash), var(--background-wash)),
-      url("portfolio-profile-background-dark.png");
+      url("portfolio-profile-background-dark.jpg");
   }
 }
 
