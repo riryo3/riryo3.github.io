@@ -322,3 +322,63 @@ footer {
 .subpage footer {
   margin-top: 40px;
 }
+
+
+/* リンク先の概要をホバーまたはキーボードフォーカス時に表示 */
+.links li {
+  position: relative;
+}
+
+.links li:hover,
+.links li:focus-within {
+  z-index: 2;
+}
+
+.links a[data-tooltip],
+.back-nav a[data-tooltip] {
+  position: relative;
+}
+
+.links a[data-tooltip]::after,
+.back-nav a[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 8px);
+  left: 0;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 64px));
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--bg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+  font-size: .85rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+
+.links a[data-tooltip]:hover::after,
+.links a[data-tooltip]:focus-visible::after,
+.back-nav a[data-tooltip]:hover::after,
+.back-nav a[data-tooltip]:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .links a[data-tooltip]::after,
+  .back-nav a[data-tooltip]::after {
+    transition: none;
+    transform: none;
+  }
+}
