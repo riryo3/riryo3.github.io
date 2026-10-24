@@ -2,11 +2,11 @@
   --bg: #f6f7fb;
   --card: #ffffff;
   --text: #1d2433;
-  --sub: #5b6578;
+  --sub: #4f5a6f;
   --line: #dfe3ee;
   --accent: #3b6df0;
   --accent-soft: #e8eefe;
-  --background-wash: rgba(246, 247, 251, .62);
+  --background-wash: rgba(246, 247, 251, .82);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,11 +14,11 @@
     --bg: #0f131c;
     --card: #1a2030;
     --text: #eef1f8;
-    --sub: #a3adc2;
+    --sub: #b8c2d6;
     --line: #2b344a;
     --accent: #7ea2ff;
     --accent-soft: #232c45;
-    --background-wash: rgba(15, 19, 28, .58);
+    --background-wash: rgba(15, 19, 28, .78);
   }
 
   body::before {
@@ -78,7 +78,7 @@ body::before {
 
 @media (max-width: 600px) {
   :root {
-    --background-wash: rgba(246, 247, 251, .76);
+    --background-wash: rgba(246, 247, 251, .90);
   }
 
   body::before {
@@ -89,7 +89,7 @@ body::before {
 
 @media (max-width: 600px) and (prefers-color-scheme: dark) {
   :root {
-    --background-wash: rgba(15, 19, 28, .70);
+    --background-wash: rgba(15, 19, 28, .86);
   }
 }
 
@@ -104,7 +104,7 @@ body::before {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .back-nav a:hover {
@@ -148,7 +148,7 @@ h1 {
 
 .handle {
   color: var(--sub);
-  font-size: .9rem;
+  font-size: .95rem;
   margin: 0;
 }
 
@@ -161,13 +161,13 @@ h1 {
 }
 
 .about h2 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin: 0 0 8px;
 }
 
 .about p {
   margin: 0;
-  font-size: .95rem;
+  font-size: 1rem;
 }
 
 .home-page .group {
@@ -180,9 +180,9 @@ h1 {
 
 .home-page .group h3,
 .subpage .group h2 {
-  font-size: .8rem;
-  color: var(--sub);
-  letter-spacing: .08em;
+  font-size: .95rem;
+  color: var(--text);
+  letter-spacing: .05em;
   margin: 0 0 8px 4px;
 }
 
@@ -285,34 +285,34 @@ h1 {
 }
 
 .home-page .link-title {
-  font-size: .95rem;
+  font-size: 1rem;
 }
 
 .subpage .link-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .links small {
   display: block;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.5;
   color: var(--sub);
 }
 
 .home-page .links small {
-  font-size: .8rem;
+  font-size: .88rem;
   margin-top: 2px;
 }
 
 .subpage .links small {
-  font-size: .82rem;
+  font-size: .9rem;
   margin-top: 3px;
 }
 
 footer {
   text-align: center;
   color: var(--sub);
-  font-size: .75rem;
+  font-size: .8rem;
 }
 
 .home-page footer {
