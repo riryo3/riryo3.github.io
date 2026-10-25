@@ -40,9 +40,19 @@
   dialog.append(header, message);
   document.body.append(dialog);
 
-  trigger.addEventListener('click', () => dialog.showModal());
+  let usedKeyboard = false;
+
+  trigger.addEventListener('click', (event) => {
+    usedKeyboard = event.detail === 0;
+    dialog.showModal();
+    if (usedKeyboard) closeButton.focus();
+    else closeButton.blur();
+  });
   closeButton.addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', (event) => {
     if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    if (usedKeyboard) trigger.focus();
   });
 })();
