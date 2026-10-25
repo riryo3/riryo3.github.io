@@ -106,11 +106,17 @@
     if (!tracking) return;
     const dx = x - ox;
     const dy = y - oy;
-    if (Math.max(Math.abs(dx), Math.abs(dy)) < STEP) return;
-    if (Math.abs(dx) > Math.abs(dy)) push(dx > 0 ? 'R' : 'L');
-    else push(dy > 0 ? 'D' : 'U');
-    ox = x;
-    oy = y;
+    const horizontal = Math.abs(dx) > Math.abs(dy);
+    const distance = horizontal ? Math.abs(dx) : Math.abs(dy);
+    const steps = Math.floor(distance / STEP);
+    if (!steps) return;
+    const sign = (horizontal ? dx : dy) > 0 ? 1 : -1;
+    const token = horizontal ? (sign > 0 ? 'R' : 'L') : (sign > 0 ? 'D' : 'U');
+    for (let i = 0; i < steps; i += 1) push(token);
+    if (horizontal) ox += sign * steps * STEP;
+    else oy += sign * steps * STEP;
+    if (horizontal) oy = y;
+    else ox = x;
   };
 
   document.addEventListener('mousedown', (event) => {
@@ -129,4 +135,21 @@
   }, touchOptions);
   document.addEventListener('touchend', () => { tracking = false; }, touchOptions);
   document.addEventListener('touchcancel', () => { tracking = false; }, touchOptions);
+
+  if (location.search.includes('konami-debug')) {
+    const log = document.createElement('pre');
+    log.style.cssText = 'position:fixed;left:8px;top:8px;z-index:99;margin:0;padding:6px 8px;border-radius:8px;background:rgba(0,0,0,.75);color:#0f0;font:12px/1.4 monospace;pointer-events:none;white-space:pre-wrap;max-width:90vw';
+    document.body.append(log);
+    const counts = { ts: 0, tm: 0, te: 0, tc: 0, md: 0 };
+    const show = () => {
+      log.textContent = `touchstart ${counts.ts} move ${counts.tm} end ${counts.te} cancel ${counts.tc}\n` +
+        `tracking ${tracking}\nbuffer ${buffer.join('')}`;
+    };
+    const bump = (key) => () => { counts[key] += 1; show(); };
+    document.addEventListener('touchstart', bump('ts'), { passive: true });
+    document.addEventListener('touchmove', bump('tm'), { passive: true });
+    document.addEventListener('touchend', bump('te'), { passive: true });
+    document.addEventListener('touchcancel', bump('tc'), { passive: true });
+    show();
+  }
 })();
