@@ -672,42 +672,90 @@ footer {
   box-shadow: 0 1px 0 #5a0f1a;
 }
 
+.konami-key {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+
 .link-info-dialog.famicom {
-  border: 4px solid #c9a54f;
-  border-radius: 10px;
-  background: #8a1f2d;
-  color: #e6c878;
-  box-shadow: 0 0 0 3px #8a1f2d, 0 0 0 5px #c9a54f, 0 18px 60px rgba(0, 0, 0, .4);
+  border: 5px solid #c5192d;
+  border-radius: 12px;
+  background: #dcc392;
+  color: #1a1a1a;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, .4);
 }
 
 .famicom .link-info-dialog__header {
-  margin: -20px -20px 0;
-  padding: 10px 20px;
-  background: #151213;
+  justify-content: flex-start;
 }
 
-.famicom .link-info-dialog h2,
+.famicom .link-info-dialog h2 {
+  padding: 3px 12px;
+  background: #1a1a1a;
+  color: #dcc392;
+}
+
 .famicom .link-info-dialog__close {
-  color: #e6c878;
+  margin-left: auto;
+  color: #1a1a1a;
 }
 
 .famicom.link-info-dialog p {
   margin-top: 18px;
-  color: #e6c878;
+  color: #1a1a1a;
   font-weight: 600;
 }
 
+.famicom.link-info-dialog::after {
+  content: "";
+  display: block;
+  height: 5px;
+  margin-top: 18px;
+  border-top: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+}
+
 .konami-pad.famicom {
-  padding: 10px 14px;
-  border: 3px solid #c9a54f;
-  border-radius: 8px;
-  background: #8a1f2d;
+  padding: 8px;
+  border-radius: 12px;
+  background: #c5192d;
   box-shadow: 0 6px 14px rgba(0, 0, 0, .35);
 }
 
+.konami-pad.famicom .konami-key:first-child {
+  margin-left: 0;
+}
+
+.konami-pad.famicom {
+  gap: 0;
+}
+
+.konami-pad.famicom .konami-key {
+  padding: 8px 12px 10px;
+  background: #dcc392;
+}
+
+.konami-pad.famicom .konami-key:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.konami-pad.famicom .konami-key:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.konami-key__label {
+  padding: 1px 12px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  color: #dcc392;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .konami-pad.famicom button {
-  border-color: #000;
-  background: #1b1718;
-  color: #e6c878;
+  border: 2px solid #000;
+  background: radial-gradient(circle at 35% 30%, #5a5a5a, #1a1a1a 60%);
   box-shadow: 0 3px 0 #000;
 }

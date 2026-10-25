@@ -61,12 +61,23 @@
     pad.className = isEn ? 'konami-pad' : 'konami-pad famicom';
     pad.hidden = true;
     ['B', 'A'].forEach((name) => {
+      const key = document.createElement('div');
+      key.className = 'konami-key';
       const button = document.createElement('button');
       button.type = 'button';
-      button.textContent = name;
       button.setAttribute('aria-label', name);
+      if (isEn) {
+        button.textContent = name;
+      } else {
+        const label = document.createElement('span');
+        label.className = 'konami-key__label';
+        label.textContent = name;
+        label.setAttribute('aria-hidden', 'true');
+        key.append(label);
+      }
       button.addEventListener('click', () => push(name));
-      pad.append(button);
+      key.append(button);
+      pad.append(key);
     });
     document.body.append(pad);
   };
