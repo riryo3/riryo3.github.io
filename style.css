@@ -671,3 +671,42 @@ footer {
   transform: translateY(2px);
   box-shadow: 0 1px 0 #5a0f1a;
 }
+
+.link-info-dialog.famicom {
+  border: 4px solid #8e1b2c;
+  border-radius: 10px;
+  background: #f3eee0;
+  color: #3a2a1f;
+  box-shadow: 0 0 0 3px #f3eee0, 0 0 0 5px #8e1b2c, 0 18px 60px rgba(0, 0, 0, .35);
+}
+
+.famicom .link-info-dialog__header {
+  margin: -20px -20px 0;
+  padding: 10px 20px;
+  background: #8e1b2c;
+}
+
+.famicom .link-info-dialog h2,
+.famicom .link-info-dialog__close {
+  color: #f3eee0;
+}
+
+.famicom.link-info-dialog p {
+  margin-top: 18px;
+  color: #3a2a1f;
+  font-weight: 600;
+}
+
+.konami-pad.famicom {
+  padding: 10px 14px;
+  border: 3px solid #8e1b2c;
+  border-radius: 8px;
+  background: #f3eee0;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .3);
+}
+
+.konami-pad.famicom button {
+  border-color: #3d0912;
+  background: #b3122b;
+  box-shadow: 0 3px 0 #3d0912;
+}
