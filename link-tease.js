@@ -29,7 +29,7 @@
       frame = requestAnimationFrame(step);
     };
 
-    icon.addEventListener('dragstart', (event) => event.preventDefault());
+    link.addEventListener('dragstart', (event) => event.preventDefault());
 
     icon.addEventListener('pointerdown', (event) => {
       cancelAnimationFrame(frame);
