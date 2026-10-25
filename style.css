@@ -639,3 +639,35 @@ footer {
   font: inherit;
   cursor: default;
 }
+
+.konami-pad {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+}
+
+.konami-pad[hidden] {
+  display: none;
+}
+
+.konami-pad button {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #5a0f1a;
+  border-radius: 50%;
+  background: #d62b3d;
+  box-shadow: 0 3px 0 #5a0f1a, 0 6px 14px rgba(0, 0, 0, .3);
+  color: #fff;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.konami-pad button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #5a0f1a;
+}
