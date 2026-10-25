@@ -2,7 +2,7 @@
   if (typeof HTMLDialogElement === 'undefined') return;
 
   const isEn = document.documentElement.lang === 'en';
-  const STEP = 36;
+  const STEP = 56;
   const ARROWS = ['U', 'U', 'D', 'D', 'L', 'R', 'L', 'R'];
   const FULL = [...ARROWS, 'B', 'A'];
   const KEYS = {
@@ -111,13 +111,13 @@
 
   const follow = (axis, v) => {
     if (axis.dir === 0) {
-      if (Math.abs(v - axis.o) >= 6) {
+      if (Math.abs(v - axis.o) >= 12) {
         axis.dir = Math.sign(v - axis.o);
         axis.ext = v;
       }
     } else if ((v - axis.ext) * axis.dir > 0) {
       axis.ext = v;
-    } else if (Math.abs(v - axis.ext) >= 8) {
+    } else if (Math.abs(v - axis.ext) >= 24) {
       axis.o = axis.ext;
       axis.dir = -axis.dir;
       axis.ext = v;
