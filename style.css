@@ -630,3 +630,12 @@ footer {
   -webkit-user-drag: none;
   user-select: none;
 }
+
+.footer-age {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: default;
+}
