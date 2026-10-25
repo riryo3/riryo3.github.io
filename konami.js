@@ -135,21 +135,4 @@
   }, touchOptions);
   document.addEventListener('touchend', () => { tracking = false; }, touchOptions);
   document.addEventListener('touchcancel', () => { tracking = false; }, touchOptions);
-
-  if (location.search.includes('konami-debug')) {
-    const log = document.createElement('pre');
-    log.style.cssText = 'position:fixed;left:8px;top:8px;z-index:99;margin:0;padding:6px 8px;border-radius:8px;background:rgba(0,0,0,.75);color:#0f0;font:12px/1.4 monospace;pointer-events:none;white-space:pre-wrap;max-width:90vw';
-    document.body.append(log);
-    const counts = { ts: 0, tm: 0, te: 0, tc: 0, md: 0 };
-    const show = () => {
-      log.textContent = `touchstart ${counts.ts} move ${counts.tm} end ${counts.te} cancel ${counts.tc}\n` +
-        `tracking ${tracking}\nbuffer ${buffer.join('')}`;
-    };
-    const bump = (key) => () => { counts[key] += 1; show(); };
-    document.addEventListener('touchstart', bump('ts'), { passive: true });
-    document.addEventListener('touchmove', bump('tm'), { passive: true });
-    document.addEventListener('touchend', bump('te'), { passive: true });
-    document.addEventListener('touchcancel', bump('tc'), { passive: true });
-    show();
-  }
 })();
