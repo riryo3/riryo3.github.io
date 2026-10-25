@@ -27,7 +27,7 @@
     hidePad();
     buffer = [];
     const dialog = document.createElement('dialog');
-    dialog.className = isEn ? 'link-info-dialog' : 'link-info-dialog famicom';
+    dialog.className = isEn ? 'link-info-dialog nes' : 'link-info-dialog famicom';
     dialog.setAttribute('aria-labelledby', 'konami-heading');
     const header = document.createElement('div');
     header.className = 'link-info-dialog__header';
@@ -58,7 +58,7 @@
 
   const buildPad = () => {
     pad = document.createElement('div');
-    pad.className = isEn ? 'konami-pad' : 'konami-pad famicom';
+    pad.className = isEn ? 'konami-pad nes' : 'konami-pad famicom';
     pad.hidden = true;
     ['B', 'A'].forEach((name) => {
       const key = document.createElement('div');
@@ -66,15 +66,11 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.setAttribute('aria-label', name);
-      if (isEn) {
-        button.textContent = name;
-      } else {
-        const label = document.createElement('span');
-        label.className = 'konami-key__label';
-        label.textContent = name;
-        label.setAttribute('aria-hidden', 'true');
-        key.append(label);
-      }
+      const label = document.createElement('span');
+      label.className = 'konami-key__label';
+      label.textContent = name;
+      label.setAttribute('aria-hidden', 'true');
+      key.append(label);
       button.addEventListener('click', () => push(name));
       key.append(button);
       pad.append(key);
