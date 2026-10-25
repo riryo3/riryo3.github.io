@@ -2,7 +2,7 @@
   if (typeof HTMLDialogElement === 'undefined') return;
 
   const isEn = document.documentElement.lang === 'en';
-  const STEP = 56;
+  const STEP = 36;
   const ARROWS = ['U', 'U', 'D', 'D', 'L', 'R', 'L', 'R'];
   const FULL = [...ARROWS, 'B', 'A'];
   const KEYS = {
@@ -99,31 +99,54 @@
     if (token) push(token);
   });
 
-  let ox = 0;
-  let oy = 0;
   let tracking = false;
+  const axisX = { o: 0, ext: 0, dir: 0 };
+  const axisY = { o: 0, ext: 0, dir: 0 };
+
+  const reset = (axis, v) => {
+    axis.o = v;
+    axis.ext = v;
+    axis.dir = 0;
+  };
+
+  const follow = (axis, v) => {
+    if (axis.dir === 0) {
+      if (Math.abs(v - axis.o) >= 6) {
+        axis.dir = Math.sign(v - axis.o);
+        axis.ext = v;
+      }
+    } else if ((v - axis.ext) * axis.dir > 0) {
+      axis.ext = v;
+    } else if (Math.abs(v - axis.ext) >= 8) {
+      axis.o = axis.ext;
+      axis.dir = -axis.dir;
+      axis.ext = v;
+    }
+  };
 
   const begin = (x, y) => {
-    ox = x;
-    oy = y;
+    reset(axisX, x);
+    reset(axisY, y);
     tracking = true;
   };
 
   const move = (x, y) => {
     if (!tracking) return;
-    const dx = x - ox;
-    const dy = y - oy;
+    follow(axisX, x);
+    follow(axisY, y);
+    const dx = x - axisX.o;
+    const dy = y - axisY.o;
     const horizontal = Math.abs(dx) > Math.abs(dy);
-    const distance = horizontal ? Math.abs(dx) : Math.abs(dy);
-    const steps = Math.floor(distance / STEP);
+    const axis = horizontal ? axisX : axisY;
+    const delta = horizontal ? dx : dy;
+    const steps = Math.floor(Math.abs(delta) / STEP);
     if (!steps) return;
-    const sign = (horizontal ? dx : dy) > 0 ? 1 : -1;
+    const sign = delta > 0 ? 1 : -1;
     const token = horizontal ? (sign > 0 ? 'R' : 'L') : (sign > 0 ? 'D' : 'U');
     for (let i = 0; i < steps; i += 1) push(token);
-    if (horizontal) ox += sign * steps * STEP;
-    else oy += sign * steps * STEP;
-    if (horizontal) oy = y;
-    else ox = x;
+    axis.o += sign * steps * STEP;
+    axis.ext = Math.max(axis.ext * sign, axis.o * sign) * sign;
+    reset(horizontal ? axisY : axisX, horizontal ? y : x);
   };
 
   document.addEventListener('mousedown', (event) => {
