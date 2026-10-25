@@ -622,3 +622,11 @@ footer {
     animation: none;
   }
 }
+
+.links a .link-icon {
+  position: relative;
+  z-index: 1;
+  touch-action: pan-y;
+  -webkit-user-drag: none;
+  user-select: none;
+}
