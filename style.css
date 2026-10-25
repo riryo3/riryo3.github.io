@@ -828,3 +828,48 @@ footer {
 .konami-pad.nes button:active {
   transform: translateY(1px);
 }
+
+.konami-pad.famicom button {
+  border: 2px solid #050505;
+  background: radial-gradient(circle at 62% 68%, #4b4b4b, #141414 72%);
+  box-shadow:
+    inset 3px 4px 6px rgba(0, 0, 0, .9),
+    inset -1px -2px 2px rgba(255, 255, 255, .22),
+    0 1px 0 rgba(255, 255, 255, .45);
+}
+
+.konami-pad.famicom button:active {
+  box-shadow:
+    inset 4px 5px 8px rgba(0, 0, 0, .95),
+    inset -1px -1px 2px rgba(255, 255, 255, .15),
+    0 1px 0 rgba(255, 255, 255, .45);
+  transform: none;
+}
+
+.konami-pad.nes button {
+  position: relative;
+  border: 0;
+  background: #c9c5bc;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .35);
+}
+
+.konami-pad.nes button::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 62% 68%, #f2584d, #c4271f 55%, #9a1912);
+  box-shadow:
+    inset 2px 3px 4px rgba(0, 0, 0, .55),
+    inset -1px -2px 2px rgba(255, 255, 255, .25);
+}
+
+.konami-pad.nes button:active::before {
+  box-shadow:
+    inset 3px 4px 6px rgba(0, 0, 0, .7),
+    inset -1px -1px 2px rgba(255, 255, 255, .15);
+}
+
+.konami-pad.nes button:active {
+  transform: none;
+}
