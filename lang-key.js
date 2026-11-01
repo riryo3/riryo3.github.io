@@ -46,6 +46,7 @@
 
   knob.addEventListener('pointermove', (event) => {
     if (!dragging) return;
+    if (event.pointerType === 'mouse' && event.buttons === 0) { release(); return; }
     if (Math.abs(event.clientX - startX) > 4) moved = true;
     setOffset(event.clientX - startX);
   });
@@ -69,6 +70,9 @@
   };
   knob.addEventListener('pointerup', release);
   knob.addEventListener('pointercancel', release);
+  knob.addEventListener('lostpointercapture', release);
+  window.addEventListener('pointerup', release);
+  window.addEventListener('blur', release);
 
   const resetInstantly = () => {
     dragging = false;

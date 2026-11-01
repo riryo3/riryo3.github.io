@@ -43,6 +43,7 @@
 
     icon.addEventListener('pointermove', (event) => {
       if (!dragging) return;
+      if (event.pointerType === 'mouse' && event.buttons === 0) { release(); return; }
       if (Math.abs(event.clientX - startX - dx) > 4 || dx > 4) moved = true;
       setOffset(event.clientX - startX);
     });
@@ -54,6 +55,9 @@
     };
     icon.addEventListener('pointerup', release);
     icon.addEventListener('pointercancel', release);
+    icon.addEventListener('lostpointercapture', release);
+    window.addEventListener('pointerup', release);
+    window.addEventListener('blur', release);
 
     link.addEventListener('click', (event) => {
       if (moved) event.preventDefault();
