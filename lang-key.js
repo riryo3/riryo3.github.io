@@ -58,6 +58,11 @@
       setOffset(max);
       try { sessionStorage.setItem('lang-slide', '1'); } catch (e) {}
       location.replace(target);
+      // If the page never changes (slow or dropped connection), don't stay stuck at the end.
+      setTimeout(() => {
+        try { sessionStorage.removeItem('lang-slide'); } catch (e) {}
+        resetInstantly();
+      }, 3000);
     } else {
       setOffset(0);
     }
